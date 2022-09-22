@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minTime, maxTime));
             GameObject box = Instantiate(boxToSpawn);
             boxes.Add(box);
+            box.transform.position = player.position +
+                                     player.forward * Random.Range(-1,1)+
+                                     player.right * Random.Range(-1,1);
 		}
         yield return null;
 	}
