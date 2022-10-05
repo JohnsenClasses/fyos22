@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+    [SerializeField] AudioClip breakSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,10 @@ public class Box : MonoBehaviour
     {
         
     }
+
+	private void OnCollisionEnter(Collision collision)
+	{
+        AudioSource.PlayClipAtPoint(breakSound, collision.contacts[0].point);
+        Destroy(this.gameObject);
+	}
 }
