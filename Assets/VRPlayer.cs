@@ -22,6 +22,6 @@ public class VRPlayer : MonoBehaviour
         movement += joy.y * head.forward;
         movement.y = 0;
         //movement.Normalize();
-        this.transform.Translate(movement * Time.deltaTime);
+        this.transform.Translate(movement * Time.deltaTime*3);
     }
 }
