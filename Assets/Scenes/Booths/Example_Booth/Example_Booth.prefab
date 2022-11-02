@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1256797945}
   - component: {fileID: 1256797944}
   - component: {fileID: 1256797943}
-  - component: {fileID: 1256797942}
+  - component: {fileID: 40919622}
   m_Layer: 0
   m_Name: Ball (1)
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1256797942
+--- !u!114 &40919622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,15 +124,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1256797940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transferOnSecondSelection: 0
-  _addNewPointsToFront: 0
-  _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
-  _twoGrabTransformer: {fileID: 0}
-  _maxGrabPoints: -1
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints: []
 --- !u!1 &3087395878304768015
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +291,7 @@ GameObject:
   - component: {fileID: 3087395879131717313}
   - component: {fileID: 3087395879131717318}
   - component: {fileID: 3087395879131717319}
-  - component: {fileID: 3087395879131717316}
+  - component: {fileID: 65284400}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -394,7 +393,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3087395879131717316
+--- !u!114 &65284400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,12 +402,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3087395879131717322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transferOnSecondSelection: 0
-  _addNewPointsToFront: 0
-  _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
-  _twoGrabTransformer: {fileID: 0}
-  _maxGrabPoints: -1
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints: []
