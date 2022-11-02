@@ -5,7 +5,8 @@ using UnityEngine;
 public class VRPlayer : MonoBehaviour
 {
     public Transform head;
-
+    Vector3[] lastGripPositions = new Vector3[2];
+    public Transform[] hands;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,27 @@ public class VRPlayer : MonoBehaviour
         movement.y = 0;
         //movement.Normalize();
         this.transform.Translate(movement * Time.deltaTime*3);
+
+
+        //add grip motion
+        float triggerRight = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
+        float triggerLeft = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
+        float[] triggers = new float[2] { triggerLeft, triggerRight };
+        
+
+        for(int i = 0; i < hands.Length; i++)
+		{
+            if (triggers[i] > .6f)
+            {
+                Vector3 delta = hands[i].position - lastGripPositions[i];
+
+                this.transform.Translate(-delta);
+
+                
+            }
+            lastGripPositions[i] = hands[i].position;
+        }
+        
+
     }
 }
