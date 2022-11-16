@@ -37,8 +37,8 @@ public class VRPlayer : MonoBehaviour
         float[] triggers = new float[2] { triggerLeft, triggerRight };
 
         bool[] triggersPulled = new bool[2];
-        triggersPulled[0] = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
-        triggersPulled[1] = OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger);
+        triggersPulled[1] = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
+        triggersPulled[0] = OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger);
 
         for(int i = 0; i < hands.Length; i++)
 		{
@@ -52,7 +52,7 @@ public class VRPlayer : MonoBehaviour
 			{
                 if(grabbers[i].grabbedObject != null)
 				{
-                    grabbers[i].grabbedObject.SendMessage("fire");
+                    grabbers[i].grabbedObject.gameObject.SendMessage("fire");
 				}
 			}
 

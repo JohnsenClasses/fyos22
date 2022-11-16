@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoothBall : MonoBehaviour
 {
+    public Transform firePosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,15 @@ public class BoothBall : MonoBehaviour
 
     public void fire()
 	{
-        this.GetComponent<Renderer>().material.color = Color.red;
+        
+        RaycastHit hitInfo;
+        if(Physics.Raycast(firePosition.position, firePosition.forward, out hitInfo))
+		{
+            Rigidbody rb = hitInfo.rigidbody;
+            if (rb != null)
+            {
+                rb.GetComponent<Renderer>().material.color = Color.red;
+            }
+        }
 	}
 }
