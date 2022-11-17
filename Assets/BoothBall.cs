@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class BoothBall : MonoBehaviour
 {
-    public Transform firePosition;
+    [SerializeField] Transform firePosition;
+    [SerializeField] AudioClip hitSound;
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        AudioSource.PlayClipAtPoint(hitSound, transform.position);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +20,11 @@ public class BoothBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 v = this.GetComponent<Rigidbody>().velocity;
+        if (v.magnitude > .1f)
+        {
+            this.transform.forward = this.GetComponent<Rigidbody>().velocity.normalized;
+        }
     }
 
     public void fire()
@@ -30,4 +40,6 @@ public class BoothBall : MonoBehaviour
             }
         }
 	}
+
+
 }
