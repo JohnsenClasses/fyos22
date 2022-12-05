@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Booths/Krish Nik Booth/Tires/test.unity
+    guid: 02177a708fbb15d4e9993b8255c505de
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 10a68eeb5f6885147958e1e97e171852, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 57eb4b12c4f21e4408a861331804305b, type: 2}

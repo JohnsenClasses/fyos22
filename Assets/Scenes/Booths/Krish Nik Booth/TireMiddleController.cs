@@ -9,9 +9,33 @@ public class TireMiddleController : MonoBehaviour
     public GameObject ball;
     public ParticleSystem particle;
 
+    public Material playBall;
+    public Material lockBall;
 
+    private void Start()
+    {
+        ball.transform.localPosition = new Vector3(-0.5f, 0.13f, 0f);
+        ball.transform.eulerAngles = new Vector3(0f, 0f, 0f);
 
-    void Start() {
+    }
+
+    void Update() {
+        Vector3 ballPos = ball.transform.localPosition;
+        Vector3 ballRot = ball.transform.eulerAngles;
+
+        if(ballPos.y <= -0.2)
+        {
+            StartCoroutine(resetGame(3));
+        }
+
+        if (ballPos == new Vector3(-0.5f, 0.13f, 0f) && ballRot == new Vector3(0,0,0))
+        {
+            ball.GetComponent<MeshRenderer>().material = lockBall;
+        }
+        else
+        {
+            ball.GetComponent<MeshRenderer>().material = playBall;
+        }
 
     }
 
@@ -22,21 +46,23 @@ public class TireMiddleController : MonoBehaviour
 
             particle.Play();
 
-            StartCoroutine(resetGame());
+            StartCoroutine(resetGame(5));
         }
 
         
 
     }
 
-    IEnumerator resetGame(){
-        Debug.Log("restarting game");
+    IEnumerator resetGame(int seconds){
+//        Debug.Log("restarting game");
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(seconds);
+        if (!tireMiddle.gameObject.activeSelf)
+        {
+            tireMiddle.gameObject.SetActive(true);
+        }
 
-        tireMiddle.gameObject.SetActive(true);
-
-        ball.transform.localPosition = new Vector3(-.5f, 0.1f, 0);
+        ball.transform.localPosition = new Vector3(-.5f, 0.13f, 0);
         ball.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }
